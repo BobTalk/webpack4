@@ -18,7 +18,7 @@ module.exports = merge(base, {
         //     "/api": {
         //       target: "http://localhost:3000",
         //       pathRewrite: {"^/api": ""} // 将/api重写为""空字符串
-        //     }
+        //     } 
         // }
     },
     plugins: [
