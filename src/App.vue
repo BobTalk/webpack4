@@ -9,7 +9,8 @@ export default {
     name: 'App',
     data(){
         return {
-            test: '测试webpack'
+            test: '测试webpack',
+            title:''
         }
     }
 }

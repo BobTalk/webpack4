@@ -1,4 +1,5 @@
 const path = require('path')
+const webpack = require('webpack')
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const MiniCssExtractPlugin =  require("mini-css-extract-plugin")
 module.exports={
@@ -17,7 +18,9 @@ module.exports={
         new MiniCssExtractPlugin({
             filename: "static/style/[name].[chunkhash:8].css",
      　　    chunkFilename: "static/style/[id].css"
-        })
+        }),
+        //配置全局的第三方插件库
+        // new webpack.ProvidePlugin({})
     ],
     output: {
         filename: 'static/js/[name].[hash:8].js',

@@ -12,7 +12,8 @@ module.exports = merge(base, {
         hot: true,
         contentBase: path.resolve(__dirname,'../dist'),
         compress: false, // 是否开启服务器gzip压缩
-        port: 8080
+        port: 8080,
+        inline: true // 设置为 true，当源文件改变时会自动刷新页面.
         // host: 'localhost'
         // proxy: {
         //     "/api": {
@@ -27,7 +28,8 @@ module.exports = merge(base, {
             title:'development',
             filename: 'index.html',
             template: path.resolve(__dirname, '../public/index.html'),
-            favicon: ""
+            favicon: "",
+            hash: true
         }),
         new webpack.NamedChunksPlugin(), // 查看更改的文件
         new webpack.HotModuleReplacementPlugin()
