@@ -9,11 +9,16 @@ module.exports = merge(base, {
     mode:'development',
     // devtool: 'inline-source-map',
     devServer: {
-        historyApiFallback: true,
+        historyApiFallback: {
+            // HTML5 history模式
+            rewrites: [{ from: /.*/, to: '/index.html' }]
+          } ,
         hot: true,
         contentBase: path.resolve(__dirname,'../dist'),
         compress: false, // 是否开启服务器gzip压缩
         port: 8080,
+        open: true,
+        overlay: true, // 如果代码出错，会在浏览器页面弹出“浮动层”。类似于 vue-cli 等脚手架
         inline: true // 设置为 true，当源文件改变时会自动刷新页面.
         // host: 'localhost'
         // proxy: {

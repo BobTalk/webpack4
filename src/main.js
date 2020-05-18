@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import '@babel/polyfill'
 import router from './router/index.js'
 import VueWechatTitle from 'vue-wechat-title'
 import '@/element/index.js'

@@ -49,7 +49,27 @@ module.exports = merge(base, {
             })
         ],
         splitChunks: {
+            chunks: 'all',
+            minSize: 30000, //超过多少大小就进行压缩 30kb
+            maxSize: 0,
+            minChunks: 1,
+            maxAsyncRequests: 5,
+            maxInitialRequests: 3,
+            automaticNameDelimiter: '~',
+            name: true,
             cacheGroups: {
+                'element-ui': {
+                    name: 'element-ui',
+                    test: /[\\/]node_modules[\\/]element-ui[\\/]/,
+                    priority: 10  // 优先级要大于 vendors 不然会被打包进 vendors
+                  },
+                  commons: {
+                    name: 'commons',
+                    minSize: 30, //表示在压缩前的最小模块大小,默认值是 30kb
+                    minChunks: 2, // 最小公用次数
+                    priority: 5, // 优先级
+                    reuseExistingChunk: true // 公共模块必开启
+                  },
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     // name: 'static/js/vendors',

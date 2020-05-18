@@ -2,6 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const MiniCssExtractPlugin =  require("mini-css-extract-plugin")
+const PurifyCSS = require('purifycss-webpack')
+const glob = require('glob-all')
 module.exports={
     entry:{
         app: './src/main.js'
@@ -24,6 +26,14 @@ module.exports={
             filename: "static/style/[name].[chunkhash:8].css",
      　　    chunkFilename: "static/style/[id].css"
         }),
+        // 清除无用css
+        // new PurifyCSS({
+        //     paths: glob.sync([
+        //       // 要做 CSS Tree Shaking 的路径文件
+        //       path.resolve(__dirname, '../public/*.html'),
+        //       path.resolve(__dirname, '../src/*.js')
+        //     ])
+        //   })
         //配置全局的第三方插件库
         // new webpack.ProvidePlugin({})
     ],
@@ -62,26 +72,27 @@ module.exports={
             //     loader: 'babel-loader'
             // },            
             {
-                test: /\.(png|svg|jpg|gif)$/,
+                test: /\.(png|jpg|gif)$/,
                 use: [
                     {
-                        loader: 'file-loader',
+                        loader: 'url-loader',
                         options: {
-                            limit: 10240,
-                            name: 'static/imgs/[name].[ext]', // 输出文件名称
-                            esModule: false
+                            limit: 10240, // 10k
+                            name: '[name].[ext]', // 输出文件名称
+                            outputPath: 'static/imgs/'
                         }
                     }
                 ]
             },
             {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
+                test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             limit: 10240,
-                            name: 'static/fonts/[name].[ext]',
+                            name: '[name].[ext]',
+                            outputPath: 'static/fonts/',
                             esModule: false
                         }
                     }
