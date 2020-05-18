@@ -9,8 +9,8 @@ module.exports={
     resolve: {
         extensions: ['.js', '.vue', '.json'],
         alias: {
-            "@": path.resolve(__dirname, "src"),
-            "static": path.resolve(__dirname, "static")
+            "@": path.resolve(__dirname, "../src"),
+            "static": path.resolve(__dirname, "../static")
         }
     },
     plugins: [

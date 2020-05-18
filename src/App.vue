@@ -1,7 +1,6 @@
 <template>
     <div id='app' class="container">
-        <p>{{test}}</p>
-        <img src="./static/imgs/code.jpg">
+        <router-view v-wechat-title='$route.meta.title'></router-view>
     </div>
 </template>
 <script>
