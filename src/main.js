@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
 import VueWechatTitle from 'vue-wechat-title'
+import '@/element/index.js'
 Vue.use(VueWechatTitle)
 Vue.config.productionTip = false
 const app = new Vue({

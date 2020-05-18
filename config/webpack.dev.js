@@ -6,7 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 打包前删�
 const HTMLWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = merge(base, {
-    devtool: 'inline-source-map',
+    mode:'development',
+    // devtool: 'inline-source-map',
     devServer: {
         historyApiFallback: true,
         hot: true,

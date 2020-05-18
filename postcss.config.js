@@ -3,9 +3,16 @@ const postcssPxToRem = require('postcss-pxtorem')
 module.exports = {
     plugins: [
         autoprefixer()
-        // postcssPxToRem({
-        //     rootValue: '100',
-        //     propList: ['*']
-        // })
+        [
+            "component",
+            {
+              "libraryName": "element-ui",
+              "styleLibraryName": "theme-chalk"
+            }
+        ],
+        postcssPxToRem({
+            rootValue: '100',
+            propList: ['*']
+        })
     ]
 }

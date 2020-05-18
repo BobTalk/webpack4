@@ -13,6 +13,11 @@ module.exports={
             "static": path.resolve(__dirname, "../static")
         }
     },
+    // externals: {
+    //     'vue': 'vue',
+    //     'vue-router': 'router',
+    //     'axios': 'axios'
+    // },
     plugins: [
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
@@ -24,7 +29,7 @@ module.exports={
     ],
     output: {
         filename: 'static/js/[name].[hash:8].js',
-        chunkFilename: "[name].bundle.js",
+        chunkFilename: "static/js/[name].bundle.js",
         path: path.resolve(__dirname, '../dist'),
         publicPath: '/'
     },
@@ -89,8 +94,18 @@ module.exports={
                 //     'css-loader'
                 // ]
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'
-                  ]
+                    MiniCssExtractPlugin.loader, 
+                    'css-loader', 
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            config: {
+                                path: path.resolve(__dirname,'../postcss.config.js')
+                            }
+                        }
+                    }
+                ]
             },
             {
                 test: /\.less$/,
@@ -98,13 +113,35 @@ module.exports={
                     // process.env.NODE_ENV !== 'prod' ? 'vue-style-loader' : MiniCssExtractPlugin.loader,
                     // 'css-loader',
                     // 'less-loader'
-                    MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'less-loader'
+                    MiniCssExtractPlugin.loader, 
+                    'css-loader', 
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            config: {
+                                path: path.resolve(__dirname,'../postcss.config.js')
+                            }
+                        }
+                    }, 
+                    'less-loader'
                 ]
             },
             {
                 test: /\.(styl|stylus)$/,
                 use: [
-                    MiniCssExtractPlugin.loader, 'css-loader', "postcss-loader", 'stylus-loader'
+                    MiniCssExtractPlugin.loader, 
+                    'css-loader', 
+                    {
+                        loader: 'postcss-loader',
+                        options: {
+                            sourceMap: true,
+                            config: {
+                                path: path.resolve(__dirname,'../postcss.config.js')
+                            }
+                        }
+                    }, 
+                    'stylus-loader'
                 ]
             }
         ]
