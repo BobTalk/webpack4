@@ -7,6 +7,4 @@ let routes = [
         meta: { title: '首页' }
     }
 ]
-module.exports = {
-    routes
-}
+export default routes

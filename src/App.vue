@@ -11,8 +11,3 @@ export default {
     }
 }
 </script>
-<style lang="stylus" scoped>
-    .d{
-        margin 0
-    }
-</style>
