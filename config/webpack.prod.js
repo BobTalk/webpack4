@@ -14,7 +14,7 @@ module.exports = merge(base, {
             title: 'productionPage',
             template: path.resolve(__dirname, '../public/index.html'),
             inject: true,//将js文件注入到body底部
-            favicon: "",
+            favicon: path.resolve(__dirname, '../public/favicon.ico'),
             minify: {
 				minifyJS: true, //压缩html内的js
 				minimize: true,//打包为最小值

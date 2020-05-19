@@ -9,10 +9,8 @@ module.exports = merge(base, {
     mode:'development',
     // devtool: 'inline-source-map',
     devServer: {
-        historyApiFallback: {
-            // HTML5 history模式
-            rewrites: [{ from: /.*/, to: '/index.html' }]
-          } ,
+        historyApiFallback: true,
+        publicPath:'/',
         hot: true,
         contentBase: path.resolve(__dirname,'../dist'),
         compress: false, // 是否开启服务器gzip压缩
@@ -33,8 +31,8 @@ module.exports = merge(base, {
         new HTMLWebpackPlugin({
             title:'development',
             filename: 'index.html',
-            template: path.resolve(__dirname, '../public/index.html'),
-            favicon: "",
+            template: 'public/index.html',
+            favicon: 'public/favicon.ico',
             hash: true,
             inject: true,//将js文件注入到body底部
             minify: {
