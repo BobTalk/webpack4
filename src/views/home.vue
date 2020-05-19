@@ -23,6 +23,9 @@ export default {
             urlImg,
             home:"首页"
         };
+    },
+    created(){
+        console.log("home");
     }
 };
 </script>
