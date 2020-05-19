@@ -45,13 +45,13 @@ module.exports={
     },
     module: {
         rules: [
-            // {
-            //     test: /\.(html|htm)$/i,
-            //     use: {
-            //         loader: 'html-withimg-loader',
-            //         options: {}
-            //     }
-            // },
+            {
+                test: /\.(html|htm)$/i,
+                use: {
+                    loader: 'html-withimg-loader',
+                    options: {}
+                }
+            },
             {
                 test: /\.vue$/,
                 exclude: '/node_modules/',
