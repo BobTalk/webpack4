@@ -35,7 +35,15 @@ module.exports = merge(base, {
             filename: 'index.html',
             template: path.resolve(__dirname, '../public/index.html'),
             favicon: "",
-            hash: true
+            hash: true,
+            minify: {
+				minifyJS: true, //压缩html内的js
+				minimize: true,//打包为最小值
+				removeAttributeQuotes: true,//去引号
+				removeComments: true,//去注释
+				collapseWhitespace: true,//去空格
+				removeEmptyElements: true//去空元素
+			}
         }),
         new webpack.NamedChunksPlugin(), // 查看更改的文件
         new webpack.HotModuleReplacementPlugin()

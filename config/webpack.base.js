@@ -54,7 +54,8 @@ module.exports={
             },
             {
                 test: /\.vue$/,
-                loader: 'vue-loader'
+                exclude: '/node_modules/',
+                use: ['vue-loader'],
             },
             {
                 test: /\.(js|jsx)$/,
@@ -65,20 +66,26 @@ module.exports={
                         options: {
                             cacheDirectory: true
                         }
-                    },
-                    {
-                        loader: 'eslint-loader', // 使用 eslint-loader
-                        options: {
-                           fix: false // 设置 fix 为 true，它会帮你自动修复一些错误，不能自动修复的，还是需要你自己手动修复
-                        }
                     }
+                    // {
+                    //     loader: 'eslint-loader', // 使用 eslint-loader
+                    //     options: {
+                    //        fix: false // 设置 fix 为 true，它会帮你自动修复一些错误，不能自动修复的，还是需要你自己手动修复
+                    //     }
+                    // }
                 ]
                 // exclude: file => (/node_modules/.test(file) && !/\.vue\.js/.test(file))
             },
             // {
             //     test: /\.jsx$/,
             //     loader: 'babel-loader'
-            // },            
+            // },  
+            {
+                test: /\.(vue|js)$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/,
+                enforce: 'pre'
+            },          
             {
                 test: /\.(png|jpg|gif)$/,
                 use: [

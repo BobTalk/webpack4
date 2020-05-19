@@ -10,13 +10,13 @@
 
 <script>
 export default {
-    name: 'Home',
+    name: "Home",
     data(){
         return {
-            home:'首页'
-        }
+            home:"首页"
+        };
     }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

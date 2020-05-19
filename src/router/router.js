@@ -1,10 +1,10 @@
 let routes = [
     {
-        path: '/',
-        name: '',
+        path: "/",
+        name: "",
         component: () =>
-            import ('@/views/home.vue'),
-        meta: { title: '首页' }
+            import ("@/views/home.vue"),
+        meta: { title: "首页" }
     }
-]
-export default routes
+];
+export default routes;
