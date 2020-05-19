@@ -6,7 +6,7 @@ const PurifyCSS = require('purifycss-webpack')
 const glob = require('glob-all')
 module.exports={
     entry:{
-        app: './src/main.js'
+        app: path.resolve(__dirname, '../src/main.js')
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -90,7 +90,7 @@ module.exports={
                 test: /\.(png|jpg|gif)$/,
                 use: [
                     {
-                        loader: 'url-loader',
+                        loader: 'file-loader',
                         options: {
                             limit: 10240, // 10k
                             name: '[name].[ext]', // 输出文件名称

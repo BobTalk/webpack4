@@ -21,7 +21,7 @@ module.exports = merge(base, {
 				removeAttributeQuotes: true,//去引号
 				removeComments: true,//去注释
 				collapseWhitespace: true,//去空格
-				removeEmptyElements: true//去空元素
+				removeEmptyElements: false//去空元素
 			}
         }),
         new OptimizeCSSAssetsPlugin ({

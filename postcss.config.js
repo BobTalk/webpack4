@@ -10,9 +10,9 @@ module.exports = {
               "styleLibraryName": "theme-chalk"
             }
         ],
-        postcssPxToRem({
-            rootValue: '100',
-            propList: ['*']
-        })
+        // postcssPxToRem({
+        //     rootValue: '100',
+        //     propList: ['*']
+        // })
     ]
 }

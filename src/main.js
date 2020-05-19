@@ -4,6 +4,7 @@ import "@babel/polyfill";
 import router from "./router/index.js";
 import VueWechatTitle from "vue-wechat-title";
 import "@/element/index.js";
+import "./assets/style/reset.css";
 Vue.use(VueWechatTitle);
 Vue.config.productionTip = false;
 const app = new Vue({
