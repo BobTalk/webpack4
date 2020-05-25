@@ -41,21 +41,22 @@ module.exports={
         filename: 'static/js/[name].[hash:8].js',
         chunkFilename: "static/js/[name].bundle.js",
         path: path.resolve(__dirname, '../dist'),
-        publicPath: './'
+        publicPath: '/'
     },
     module: {
         rules: [
             {
                 test: /\.(html|htm)$/i,
-                use: {
-                    loader: 'html-withimg-loader',
-                    options: {}
-                }
+                use: ['html-withimg-loader']
             },
             {
                 test: /\.vue$/,
                 exclude: '/node_modules/',
                 use: ['vue-loader'],
+            },
+            {
+                test: /\.ejs/,
+                use: ['ejs-loader'],
             },
             {
                 test: /\.(js|jsx)$/,

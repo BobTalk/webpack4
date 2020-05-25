@@ -5,6 +5,8 @@
     <p>
         <el-input-number v-model="home" :min="1" :max="10" label="描述文字">
         </el-input-number>
+        
+        <i class="el-icon-edit"></i>
     </p>
     <img :src="urlImg"/>
     <hr>
