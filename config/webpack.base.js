@@ -2,8 +2,10 @@ const path = require('path')
 const webpack = require('webpack')
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const MiniCssExtractPlugin =  require("mini-css-extract-plugin")
-const PurifyCSS = require('purifycss-webpack')
-const glob = require('glob-all')
+const env = require(path.resolve(__dirname, '../.env'))
+// const PurifyCSS = require('purifycss-webpack')
+// const glob = require('glob-all')
+
 module.exports={
     entry:{
         app: path.resolve(__dirname, '../src/main.js')
@@ -26,6 +28,9 @@ module.exports={
             filename: "static/style/[name].[chunkhash:8].css",
      　　    chunkFilename: "static/style/[id].css"
         }),
+        new webpack.DefinePlugin({
+            'process.env': env
+          })
         // 清除无用css
         // new PurifyCSS({
         //     paths: glob.sync([

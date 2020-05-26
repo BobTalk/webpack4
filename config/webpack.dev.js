@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const path =  require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 打包前删除dist目录
 const HTMLWebpackPlugin = require('html-webpack-plugin')
+const env = require(path.resolve(__dirname, '../.env.development'))
 
 module.exports = merge(base, {
     mode:'development',
@@ -14,7 +15,7 @@ module.exports = merge(base, {
         hot: true,
         contentBase: path.resolve(__dirname,'../dist'),
         compress: false, // 是否开启服务器gzip压缩
-        port: 8080,
+        port: 9090,
         open: true,
         overlay: true, // 如果代码出错，会在浏览器页面弹出“浮动层”。类似于 vue-cli 等脚手架
         inline: true // 设置为 true，当源文件改变时会自动刷新页面.
@@ -45,6 +46,9 @@ module.exports = merge(base, {
 			}
         }),
         new webpack.NamedChunksPlugin(), // 查看更改的文件
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.DefinePlugin({  // 定义环境变量   可以写成  ENV:"'dev'" dev得是一个字符串形式
+        'process.env': env
+    })
     ]
 })

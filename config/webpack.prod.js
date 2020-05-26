@@ -1,10 +1,12 @@
 const merge = require('webpack-merge')
 const base = require('./webpack.base.js')
+const webpack = require('webpack')
 const path =  require('path')
 const TerserPlugin = require('terser-webpack-plugin') // 压缩js
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin') //压缩css
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 打包前删除dist目录
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const env = require(path.resolve(__dirname, '../.env.production'))
 module.exports = merge(base, {
     devtool: 'production',
     mode: 'production',
@@ -36,6 +38,9 @@ module.exports = merge(base, {
               }]
             },
             canPrint: false  // 是否打印编译过程中的日志
+          }),
+          new webpack.DefinePlugin({
+            'process.env': env
           })
     ],
     optimization: {
