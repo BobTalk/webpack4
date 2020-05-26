@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const path =  require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 打包前删除dist目录
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const env = require(path.resolve(__dirname, '../.env.development'))
+const env = require(path.resolve(__dirname, '../development.env'))
 
 module.exports = merge(base, {
     mode:'development',
@@ -48,7 +48,8 @@ module.exports = merge(base, {
         new webpack.NamedChunksPlugin(), // 查看更改的文件
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({  // 定义环境变量   可以写成  ENV:"'dev'" dev得是一个字符串形式
-        'process.env': env
+        'process.env': env,
+        'HTMLWebpackPlugin.options': {title:'development'}
     })
     ]
 })
