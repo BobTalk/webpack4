@@ -14,9 +14,10 @@ module.exports = merge(base, {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: 'productionPage',
-            template: path.resolve(__dirname, '../public/index.html'),
+            filename: 'index.html',
+            template: 'public/index.html',
+            favicon: 'public/favicon.ico',
             inject: true,//将js文件注入到body底部
-            favicon: path.resolve(__dirname, '../public/favicon.ico'),
             minify: {
 				minifyJS: true, //压缩html内的js
 				minimize: true,//打包为最小值
