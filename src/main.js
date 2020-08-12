@@ -8,7 +8,7 @@ import "./assets/style/reset.css";
 import "element-ui/lib/theme-chalk/index.css"
 Vue.use(VueWechatTitle);
 Vue.config.productionTip = false;
-console.log(process.env.BASE_API)
+console.log(process.env)
 const app = new Vue({
     router,
     render: (h) => h(App)

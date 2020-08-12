@@ -1,11 +1,10 @@
 const path = require('path')
-const webpack = require('webpack')
+// const webpack = require('webpack')
 const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const MiniCssExtractPlugin =  require("mini-css-extract-plugin")
-const env = require(path.resolve(__dirname, '../.env'))
+// const env = path.resolve(__dirname, '../.env')
 // const PurifyCSS = require('purifycss-webpack')
 // const glob = require('glob-all')
-
 module.exports={
     entry:{
         app: path.resolve(__dirname, '../src/main.js')
@@ -26,11 +25,8 @@ module.exports={
         new VueLoaderPlugin(),
         new MiniCssExtractPlugin({
             filename: "static/style/[name].[chunkhash:8].css",
-     　　    chunkFilename: "static/style/[id].css"
+            chunkFilename: "static/style/[id].css"
         }),
-        new webpack.DefinePlugin({
-            'process.env': env
-          })
         // 清除无用css
         // new PurifyCSS({
         //     paths: glob.sync([
@@ -51,16 +47,12 @@ module.exports={
     module: {
         rules: [
             {
-                test: /\.(html|htm)$/i,
-                use: ['html-withimg-loader']
-            },
-            {
                 test: /\.vue$/,
                 exclude: '/node_modules/',
                 use: ['vue-loader'],
             },
             {
-                test: /\.ejs/,
+                test: /\.(ejs|html|htm)/,
                 use: ['ejs-loader'],
             },
             {
@@ -82,10 +74,6 @@ module.exports={
                 ]
                 // exclude: file => (/node_modules/.test(file) && !/\.vue\.js/.test(file))
             },
-            // {
-            //     test: /\.jsx$/,
-            //     loader: 'babel-loader'
-            // },  
             {
                 test: /\.(vue|js)$/,
                 loader: 'eslint-loader',

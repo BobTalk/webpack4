@@ -4,10 +4,10 @@ const webpack = require('webpack')
 const path =  require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 打包前删除dist目录
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const env = require(path.resolve(__dirname, '../development.env'))
-
+const devEnv = require(path.resolve(__dirname, '../development.env'))
+const env = require(path.resolve(__dirname, '../.env'))
 module.exports = merge(base, {
-    mode:'development',
+    mode: 'development',
     // devtool: 'inline-source-map',
     devServer: {
         historyApiFallback: true,
@@ -33,23 +33,16 @@ module.exports = merge(base, {
             title:'development',
             filename: 'index.html',
             template: 'public/index.html',
-            favicon: 'public/favicon.ico',
+            favicon: path.resolve(__dirname, '../public/favicon.ico'),
             hash: true,
             inject: true,//将js文件注入到body底部
-            minify: {
-				minifyJS: true, //压缩html内的js
-				minimize: true,//打包为最小值
-				removeAttributeQuotes: true,//去引号
-				removeComments: true,//去注释
-				collapseWhitespace: true,//去空格
-				removeEmptyElements: false//去空元素
-			}
+            minify: false
         }),
         new webpack.NamedChunksPlugin(), // 查看更改的文件
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({  // 定义环境变量   可以写成  ENV:"'dev'" dev得是一个字符串形式
-        'process.env': env,
-        'HTMLWebpackPlugin.options': {title:'development'}
-    })
+            'process.env': {...devEnv,...env},
+            'HTMLWebpackPlugin.options': {title:'"development"'}
+        })
     ]
 })

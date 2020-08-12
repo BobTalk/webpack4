@@ -2,7 +2,7 @@
   "name": "cityextension",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "./src/main.js",
   "scripts": {
     "build:prod": "set NODE_ENV=prod && webpack --config ./build/webpack.prod.js",
     "build:dev": "set NODE_ENV=dev && webpack --config ./build/webpack.dev.js",
@@ -33,6 +33,7 @@
     "eslint-plugin-vue": "^7.0.0-alpha.3",
     "file-loader": "^6.0.0",
     "glob-all": "^3.2.1",
+    "html-loader": "^1.1.0",
     "html-webpack-plugin": "^4.3.0",
     "html-withimg-loader": "^0.1.16",
     "less": "^3.11.1",
