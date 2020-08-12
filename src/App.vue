@@ -9,7 +9,7 @@
                     <head-comp></head-comp>
                 </div>
                 <div class="main">
-                    <router-view ></router-view>
+                    <router-view v-wechat-title="$route.meta.title"></router-view>
                 </div>
             </div>
         </div>
