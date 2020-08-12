@@ -2,17 +2,17 @@ const autoprefixer = require('autoprefixer')
 const postcssPxToRem = require('postcss-pxtorem')
 module.exports = {
     plugins: [
-        autoprefixer()
-        [
-            "component",
-            {
-              "libraryName": "element-ui",
-              "styleLibraryName": "theme-chalk"
-            }
-        ]
-        // postcssPxToRem({
-        //     rootValue: '50',
-        //     propList: ['*']
-        // })
+        autoprefixer(),
+        // [
+        //     "component",
+        //     {
+        //         "libraryName": "element-ui",
+        //         "styleLibraryName": "theme-chalk"
+        //     }
+        // ]
+        postcssPxToRem({
+            rootValue: '37.5',
+            propList: ['*']
+        })
     ]
 }

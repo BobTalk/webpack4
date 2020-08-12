@@ -6,7 +6,7 @@
   "scripts": {
     "build:prod": "set NODE_ENV=prod && webpack --config ./build/webpack.prod.js",
     "build:dev": "set NODE_ENV=dev && webpack --config ./build/webpack.dev.js",
-    "dev": "cross-env NODE_ENV=dev && webpack-dev-server  --config ./build/webpack.dev.js"
+    "dev": "cross-env NODE_ENV=dev && webpack-dev-server --config ./build/webpack.dev.js"
   },
   "author": "",
   "license": "ISC",
