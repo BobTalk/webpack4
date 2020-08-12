@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const path =  require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 打包前删除dist目录
 const HTMLWebpackPlugin = require('html-webpack-plugin')
-const devEnv = require(path.resolve(__dirname, '../development.env'))
+const devEnv = require(path.resolve(__dirname, '../.env.development'))
 const env = require(path.resolve(__dirname, '../.env'))
 module.exports = merge(base, {
     mode: 'development',
